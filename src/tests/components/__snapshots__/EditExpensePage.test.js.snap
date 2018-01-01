@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EditExpensePage correctly 1`] = `
+<div>
+  <ExpenseForm
+    onSubmit={[Function]}
+  />
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Remove
+  </button>
+</div>
+`;
