@@ -14,9 +14,9 @@ import { setTimeout } from 'timers';
 
 const store = configureStore();
 
-store.dispatch(addExpense({ description: 'Water bill', amount: 4500, createdAt: 1000 }));
+/*store.dispatch(addExpense({ description: 'Water bill', amount: 4500, createdAt: 1000 }));
 store.dispatch(addExpense({ description: 'Gas bill', amount: 15000, createdAt: 120 }));
-store.dispatch(addExpense({ description: 'Rent', amount: 120000 }));
+store.dispatch(addExpense({ description: 'Rent', amount: 120000 }));*/
 
 
 
