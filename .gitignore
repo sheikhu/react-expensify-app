@@ -1,5 +1,4 @@
 /node_modules/
-public/*.css
-public/*.css.map
-public/*.js
-public/*.js.map
+public/dist/
+.env.development
+.env.test
