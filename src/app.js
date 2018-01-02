@@ -7,18 +7,12 @@ import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
 import AppRouter from "./routers/AppRouter";
 import configureStore from './store/configureStore';
-import { addExpense } from './actions/expenses';
+import { addExpense, startSetExpenses } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import { setTimeout } from 'timers';
 
 const store = configureStore();
-
-/*store.dispatch(addExpense({ description: 'Water bill', amount: 4500, createdAt: 1000 }));
-store.dispatch(addExpense({ description: 'Gas bill', amount: 15000, createdAt: 120 }));
-store.dispatch(addExpense({ description: 'Rent', amount: 120000 }));*/
-
-
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
@@ -28,4 +22,9 @@ const jsx = (
     <AppRouter />
   </Provider>
 );
-ReactDOM.render(jsx, document.querySelector('#app'));
+
+ReactDOM.render(<p>Loading...</p>, document.querySelector('#app'));
+
+store.dispatch(startSetExpenses()).then(() => {
+  ReactDOM.render(jsx, document.querySelector('#app'));
+});

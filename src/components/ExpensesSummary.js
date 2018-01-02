@@ -11,8 +11,7 @@ export class ExpensesSummary extends React.Component {
     const expenseWord = expenseCount == 1 ? 'expense' : 'expenses';
     return (
       <div>
-        Viewing {expenseCount} {expenseWord}
-        totaling {numeral(expensesTotal / 100).format('$0,0.00')}
+        Viewing {expenseCount} {expenseWord} totaling {numeral(expensesTotal / 100).format('$0,0.00')}
       </div>
     );
   }
