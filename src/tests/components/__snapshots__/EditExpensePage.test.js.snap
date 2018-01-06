@@ -2,14 +2,32 @@
 
 exports[`should render EditExpensePage correctly 1`] = `
 <div>
-  <ExpenseForm
-    onSubmit={[Function]}
-  />
-  <button
-    onClick={[Function]}
-    type="button"
+  <div
+    className="page-header"
   >
-    Remove
-  </button>
+    <div
+      className="content-container"
+    >
+      <h1
+        className="page-header__title"
+      >
+        Edit Expense
+      </h1>
+    </div>
+  </div>
+  <div
+    className="content-container"
+  >
+    <ExpenseForm
+      onSubmit={[Function]}
+    />
+    <button
+      class="button button--secondary"
+      onClick={[Function]}
+      type="button"
+    >
+      Remove
+    </button>
+  </div>
 </div>
 `;

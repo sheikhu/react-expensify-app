@@ -13,21 +13,12 @@ export class LoginPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Login</h2>
-        <form onSubmit={this.login}>
-          <div>
-            <label>Username</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label>Password: </label>
-            <input type="password" />
-          </div>
-          <div>
-            <button type="button" onClick={this.props.startLogin}>Login</button>
-          </div>
-        </form>
+      <div className="box-layout">
+        <div className="box-layout__box">
+          <h1 className="box-layout__title">Expensify</h1>
+          <p>It's time to get your expenses under control.</p>
+          <button className="button" type="button" onClick={this.props.startLogin}>Login with Google</button>
+        </div>
       </div>
     );
   }
