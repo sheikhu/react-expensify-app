@@ -99,7 +99,7 @@ export default class ExpenseForm extends React.Component {
         </textarea>
 
         <div>
-          <button class="button">Save Expense</button>
+          <button className="button">Save Expense</button>
         </div>
       </form>
     );

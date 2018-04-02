@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import PropTypes from 'prop-types';
 import ExpenseListItem from '../components/ExpenseListItem';
 import selectExpenses from '../selectors/expenses';
 
 export const ExpenseList = (props) => (
   <div className="content-container">
-    <div class="list-header">
+    <div className="list-header">
       <div className="show-for-mobile">Expenses</div>
       <div className="show-for-desktop">Expense</div>
       <div className="show-for-desktop">Amount</div>
@@ -25,8 +25,12 @@ export const ExpenseList = (props) => (
           )
       }
     </div>
-  </div >
+  </div>
 );
+
+ExpenseList.propTypes = {
+    expenses: PropTypes.array
+};
 
 const mapStateToProps = (state) => {
   return {

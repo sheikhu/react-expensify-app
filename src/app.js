@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 import "normalize.css/normalize.css";
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
+import 'sweetalert/dist/sweetalert.css';
 import 'react-dates/initialize';
-import AppRouter, { history } from "./routers/AppRouter";
+import AppRouter, {history} from "./routers/AppRouter";
 import configureStore from './store/configureStore';
-import { addExpense, startSetExpenses } from './actions/expenses';
-import { login, logout } from './actions/auth';
-import { setTextFilter } from './actions/filters';
+import {startSetExpenses} from './actions/expenses';
+import {login, logout} from './actions/auth';
 import getVisibleExpenses from './selectors/expenses';
-import { setTimeout } from 'timers';
-import { firebase } from './firebase/firebase';
+import {firebase} from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
+
+
 const store = configureStore();
 
 const state = store.getState();

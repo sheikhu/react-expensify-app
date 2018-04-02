@@ -1,6 +1,6 @@
 import uuid from 'uuid';
 import database from '../firebase/firebase';
-
+import Expense from '../models/Expense';
 // ADD_EXPENSE
 export const addExpense = (expense) => ({
   type: 'ADD_EXPENSE',
@@ -40,7 +40,7 @@ export const startRemoveExpense = (id) => {
     return database.ref(`users/${uid}/expenses/${id}`).remove().then(() => {
       dispatch(removeExpense(id));
     });
-  }
+  };
 };
 
 // EDIT_EXPENSE
@@ -56,7 +56,7 @@ export const startEditExpense = (id, updates) => {
     return database.ref(`users/${uid}/expenses/${id}`).update(updates).then(() => {
       dispatch(editExpense(id, updates));
     });
-  }
+  };
 };
 
 // SET_EXPENSES
@@ -72,13 +72,16 @@ export const startSetExpenses = () => {
       const expenses = [];
 
       snapshot.forEach((childSnapshot) => {
-        expenses.push({
-          id: childSnapshot.key,
-          ...childSnapshot.val()
-        })
+        const { description, amount, createdAt} = childSnapshot.val();
+        expenses.push(new Expense(
+          childSnapshot.key,
+          description,
+          amount,
+          createdAt
+      ));
       });
 
       dispatch(setExpenses(expenses));
     });
-  }
+  };
 };

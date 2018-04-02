@@ -8,12 +8,12 @@ export class EditExpensePage extends React.Component {
 
     editExpense = (expense) => {
         this.props.startEditExpense(this.props.expense.id, expense);
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
     }
 
     onRemove = () => {
         this.props.startRemoveExpense(this.props.expense.id);
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
     }
 
 
@@ -29,7 +29,7 @@ export class EditExpensePage extends React.Component {
                     <ExpenseForm expense={this.props.expense}
                         onSubmit={this.editExpense}
                     />
-                    <button type="button" class="button button--secondary" onClick={this.onRemove}>Remove</button>
+                    <button type="button" className="button button--secondary" onClick={this.onRemove}>Remove</button>
 
                 </div>
 

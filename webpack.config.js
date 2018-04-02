@@ -9,6 +9,8 @@ if (process.env.NODE_ENV === 'test') {
   require('dotenv').config({ path: '.env.test' });
 } else if (process.env.NODE_ENV === 'development') {
   require('dotenv').config({ path: '.env.development' });
+} else if (process.env.NODE_ENV === 'production') {
+  require('dotenv').config({ path: '.env' });
 }
 
 module.exports = (env) => {
@@ -44,7 +46,10 @@ module.exports = (env) => {
             },
           ]
         })
-      }]
+      },
+      { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+      ]
     },
     plugins: [
       CSSExtract,
@@ -65,7 +70,11 @@ module.exports = (env) => {
       compress: true,
       historyApiFallback: true,
       publicPath: '/dist/'
-    }
+    },
+    resolve: {
+        // Add '.ts' and '.tsx' as resolvable extensions.
+        extensions: [".ts", ".tsx", ".js", ".json"]
+    },
 
   };
 
